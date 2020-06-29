@@ -1,0 +1,75 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}  DetailCircuit {% endblock %}
+{% block main %}
+    <div style="position:absolute;top:1px;width: 100%;height: 500px;background-position: center;background-repeat: no-repeat;
+  background-size: cover;background-image: url('https://ekladata.com/ALUuGFWQmcMvjLGt6oXPsDbnM_g.jpg')"> </div>
+    <h1 style="font-size:60px ; z-index: 10;position: absolute;top:230px; margin-left: 280px;color: honeydew">
+        Les vacances préférées d’Emilia
+    </h1>
+    <div class="container">
+<div style="position: absolute; background-color: #f1f2f3 ;margin-top: 550px">
+    <div class=" container" style="display: flex" >
+        <h5 style="color: slategray;text-align:left;padding: 10px"><strong>Départ:</strong> EN ROUTE POUR {{ circuit.VilleEtape.DestVille.DesDest }}: {{circuit.CircuitEtape.DureeCircuit}} jours / {{circuit.CircuitEtape.DureeCircuit-1}} nuits</h5>
+        {% if app.user %}
+        <a style="margin-left: 420px;padding: 10px" href="{{path('createEtape')}}"><button  class="btn" style="margin-top:20px;background-color: teal;color: white">Ajouter Une Etape</button></a>
+        {% endif %}
+    </div>
+    <div class="flex items-center justify-center">
+        <div class="border w-full p-5 rounded-lg">
+            {% for c in circ %}
+                {% if c.CircuitEtape.Id==id %}
+                <div class="w-2/3 ">
+                <div  style="width: 1000px;" class="text-gray-900 text-2xl mb-4">
+                    <div class=" rounded overflow-hidden shadow-lg">
+                        <img style="position: absolute;height: 350px;width: 91%" class="w-full" src="{{ c.VilleEtape.ImageVille }}">
+
+                        <p style="position: relative;top: 230px;left:20px;color: #f1f2f3;font-size: 100px;font-family: 'Droid Sans Mono'" class="text-white">
+                            {{ c.OrdreEtape }}
+                        </p>
+                        <p style="position: relative;top: 120px;left: 250px;color: #f1f2f3;font-size: 40px;font-family: 'Droid Sans Mono'" class="text-white">
+                            <strong> Decouverte de la ville  {{ c.VilleEtape.DesVille }} pour {{ c.DureeEtape }} jours.</strong>
+                        </p>
+                        <div style="margin-top: 100px" class="px-6 py-4">
+                            <div class=" text-xl mb-2 p-6">
+                                <table>
+                                    <tr>
+                                        <td><h5 style="padding-right: 150px">Conseil:</h5></td>
+                                        <td style="padding-left: 30px"><strong class="text-teal-500">Important :</strong><br>
+                                            - Les taxes aéroportuaires font l’objet d’une variation sans préavis. Un supplément est donc à prévoir.<br>
+                                            - Les demandes de dernières minutes sont soumises à des conditions et calcul tarifaires spéciaux.<br>
+                                            - L’ordre des journées d’excursion peut être sujet à des changements en fonction des conditions météoritiques ou autres facteurs inattendus.<br>
+                                            - L’enregistrement au départ se fait 03 heures avant l’heure du décollage à l’aéroport.<br>
+                                            - Pour les passagers, doivent avoir un passeport avec une validité d'une durée de 06 mois minimum.<br>
+                                            - Les voyageurs de moins de 35 ans voyageant seuls doivent obligatoirement êtres munis d’une autorisation parentale légalisée et la présence de leurs parents à l’aéroport le jour de départ.
+                                            <br><br>
+
+                                            <strong class="text-teal-500">Ce Forfait ne comprend pas :</strong><br>
+                                            - Les dépenses à caractère personnel.<br>
+                                            - Le timbre de voyage : 60 DT.<br>
+                                            - L’assurance voyage.<br>
+                                            - les déjeuners pendant les excursions
+                                    </tr>
+                                    <tr>
+                                        <td ><h5 style="padding-right: 150px">Action</h5></td>
+                                        <td>
+                                            <div style="margin-left: 20px;padding: 30px;">
+                                         {% if app.user %}
+                                                <a href="{{ path('updateEtape',{'id':c.id }) }}"><button  class="btn" style="background-color: powderblue;">Modifier</button></a>
+                                                <a style="margin-left: 300px" href="{{ path('deleteEtape',{'id':c.id }) }}"><button  class="btn" style="background-color: #e53e3e;">Supprimer</button></a>
+                                           {% endif %}
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</div></div>
+{% endblock %}

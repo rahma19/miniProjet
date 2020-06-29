@@ -1,0 +1,49 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}  EtapeCircuit {% endblock %}
+{% block main %}
+    <div class=" flex justify-center align-items w-full h-full bg-gray-300 ">
+        <table style="margin: 30px;margin-left: 80px">
+            <tr>
+                <td style="width:200px;background-color: indianred">
+                        <h2 class="text-white" style="text-decoration: none;color: black;position: absolute;top: 120px;left: 320px">Etape</h2>
+                        <hr class="my-4 bg-gray-100" style="margin-left: 30px;position: absolute;top: 150px; width: 10%">
+                        <a href="{{ path('circuit') }}">
+                            <button type="submit" style="width: 150px;position: absolute;top: 200px;left: 280px" class="text-center bg-teal-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+                                Detail Circuit
+                            </button>
+                        </a>
+                </td>
+                <td>
+                    <div style="width: 650px">
+                        {{ form_start(formEtapeCirc,{'attr':{'class':'bg-white shadow-md  rounded px-8 pt-6'}}) }}
+                        <h1 class="text-left text-teal-600">
+                            Supprimer une etape
+                        </h1>
+                        <div class="border rounded-lg p-4">
+                            <div class="mb-4  block text-center text-gray-500 text-sm shadow " >
+                                {{ form_row(formEtapeCirc.ville_etape,{'attr':{'placeholder':'Description de la ville'}} )}}
+                            </div>
+                            <div class="mb-6  block text-center text-gray-500 text-sm shadow ">
+                                {{ form_row(formEtapeCirc.circuit_etape,{'attr':{'placeholder':'Description du circuit'}} )}}
+                            </div>
+                            <div class="mb-8  block text-center text-gray-500 text-sm shadow ">
+                                {{ form_row(formEtapeCirc.duree_etape,{'attr':{'placeholder':'duree de l etape'}} )}}
+                            </div>
+                            <div class="mb-10  block text-center text-gray-500 text-sm shadow ">
+                                {{ form_row(formEtapeCirc.ordre_etape,{'attr':{'placeholder':'ordre de l etape'}} )}}
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <button type="submit" style="width: 300px;margin-left: 120px" class="text-center bg-teal-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+                                    Supprimer
+                                </button>
+                                {{ form_end(formEtapeCirc) }}
+                            </div>
+                        </div>
+                    </div>
+                </td>
+
+            </tr>
+        </table>
+    </div>
+{% endblock %}

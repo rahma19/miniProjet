@@ -1,0 +1,41 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}  Ville {% endblock %}
+{% block main %}
+        <div style="position:absolute;top:1px;width: 100%;height: 550px;filter: blur(8px);background-position: center;background-repeat: no-repeat;
+  background-size: cover;background-image: url('https://www.algerie360.com/wp-content/uploads/2017/10/usa-s-jour-chicago-1024x630.jpg')">
+        </div>
+    <div style="font-size:25px ; z-index: 10;position: absolute;top:40px; margin-left: 500px">
+    <h1 style="padding: 10px" class="text-teal-500">{% if test %}
+                Modifier Une Ville
+            {% else %}
+                Ajouter Une Ville
+            {% endif %} </h1>
+         {{ form_start(formVille,{'attr':{'class':'w-full max-w-lg text-white'}}) }}
+            <div class="flex flex-wrap -mx-3 mb-6">
+                <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                    <strong>{{ form_row(formVille.CodeVille,{'attr':{'placeholder':'Code de la ville'}} )}}</strong>
+                </div>
+                <div class="w-full md:w-1/2 px-3">
+                    <strong> {{ form_row(formVille.DesVille,{'attr':{'placeholder':'Description de la ville'}} )}}</strong>
+                </div>
+            </div>
+            <div class="flex flex-wrap -mx-3 mb-6">
+                <div class="w-full px-3">
+                    <strong> {{ form_row(formVille.ImageVille,{'attr':{'placeholder':'Image de la ville'}} )}}</strong>
+                </div>
+            </div>
+            <div class="flex flex-wrap -mx-3 mb-2">
+                <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                    <strong>  {{ form_row(formVille.DestVille,{'attr':{'placeholder':'Destination de la ville'}} )}}</strong>
+                </div>
+            </div><button type="submit" class="btn text-white" style="background-color: #319795">
+                {% if test %}
+                    Modifier
+                {% else %}
+                    Ajouter
+                {% endif %}
+            </button>
+            {{ form_end(formVille) }}
+    </div>
+{% endblock %}

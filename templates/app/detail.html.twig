@@ -1,0 +1,45 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}  Detail {% endblock %}
+
+{% block main %}
+
+<div class="container" style="  background: #f0f5f6; margin-top: 20px;padding: 20px" >
+    <div class="border rounded-lg"style="padding: 20px">
+    <h1 style="color: teal">Vol aller et retour a {{ dest.DesDest }}</h1>
+        <strong style="margin-left:100px;font-size: 25px">Code du voyage : <span class="text-center" style="color:#e53e3e;border-radius: 20px;width: 70px">{{ dest.CodeDest }}</span></strong>
+        {% if app.user %}
+        <a style="margin-left: 400px" href="{{path('createVille')}}"><button  class="btn text-white" style="background-color: teal;">Ajouter une ville</button></a>
+        {% endif %}
+        <table style="border:1px lightgrey solid;margin-left:100px;margin-top:50px;text-align: center">
+            <tr>
+                <th style="padding: 20px">Image de la Ville</th>
+                <th style="padding: 20px">Nom de la Ville</th>
+                <th style="padding: 20px">Code de la Ville</th>
+                <td> </td>
+            </tr>
+            {% for ville in dest.villes %}
+            <tr style="border:1px lightgrey solid;font-size: 25px">
+                <td  style="padding: 20px">
+                    <img src="{{ ville.ImageVille }}"style="float: left;" width="300px" height="150px"/>
+                </td>
+                <td style="padding: 20px">
+                    {{ ville.DesVille }}
+                </td>
+                  <td style="padding: 20px">
+                      {{ ville.CodeVille }}
+                  </td>
+                <td style="padding:20px">
+                    {% if app.user %}
+                    <a href="{{ path('updateVille',{'id':ville.id}) }}">
+                        <button  class="btn"><img src="https://image.flaticon.com/icons/svg/2919/2919636.svg" style="width: 40px;height: 25px"></button></a>
+                    <a href="{{ path('deleteVille',{'id':ville.id}) }}">
+                        <button  class="btn" ><img src="https://image.flaticon.com/icons/svg/1828/1828843.svg" style="width: 40px;height: 25px"></button></a>
+                {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}  Circuit {% endblock %}
+{% block main %}
+    <div style="position:absolute;top:1px;width: 100%;height: 800px;background-position: center;background-repeat: no-repeat;
+  background-size: cover;background-image: url('https://www.tribudexplorateurs.com/wp-content/uploads/2018/11/sejour-floride-key-west.jpg')"> </div>
+    <div style="font-size:25px ; z-index: 10;position: absolute;top:40px; margin-left: 600px">
+    <table style="margin: 30px;margin-left: 80px">
+            <tr>
+                <td>
+                        {{ form_start(formCircuit,{'attr':{'class':'shadow-md  rounded px-8 pt-6'}}) }}
+                        <h1 class="text-center text-white">
+                            {% if test %}
+                                Modifier Un Circuit
+                            {% else %}
+                                Ajouter Un Circuit
+                            {% endif %}
+                        </h1>
+                        <div class="border rounded-lg p-4">
+                        <div class="mb-4  block text-center ttext-black text-sm shadow " >
+                            {{ form_row(formCircuit.code_circuit,{'attr':{'placeholder':'Code du circuit'}} )}}
+                        </div>
+                        <div class="mb-6  block text-center text-black text-sm shadow ">
+                            {{ form_row(formCircuit.des_circuit,{'attr':{'placeholder':'Description du circuit'}} )}}
+                        </div>
+                        <div class="mb-8  block text-center text-black text-sm shadow ">
+                            {{ form_row(formCircuit.duree_circuit,{'attr':{'placeholder':'duree de circuit'}} )}}
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <button type="submit" style="width: 300px;margin-left: 120px" class="text-center bg-teal-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+                                {% if test %}
+                                    Modifier
+                                {% else %}
+                                    Ajouter
+                                {% endif %}
+                            </button>
+                        </div>
+                        </div>
+                </td>
+
+            </tr>
+        </table>
+    </div>
+{% endblock %}

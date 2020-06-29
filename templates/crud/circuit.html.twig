@@ -1,0 +1,50 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}  Circuit {% endblock %}
+{% block main %}
+    <div style="position:absolute;top:1px;width: 100%;height: 500px;background-position: center;background-repeat: no-repeat;
+  background-size: cover;background-image: url('https://www.vrak.tv/polopoly_fs/1.3828758.1526675885!/image/Avion%20qui%20de%CC%81colle.jpg_gen/derivatives/vrak_816_459/Avion%20qui%20de%CC%81colle.jpg')"> </div>
+    <div style="position:absolute;margin-top: 650px;" class="flex items-center justify-center">
+    <div style="height: 100%;" class="m-4 " >
+        <div class="text-center flex" style="margin-top: 20px">
+            <h1 style="margin-left: 80px" class=" text-teal-600">Nos Voyages</h1>
+            {% if app.user %}
+            <a style="margin-left: 700px;" href="{{path('createCirc')}}"><button style="background-color: powderblue"  class="btn">Ajouter Un Circuit</button></a>
+            {% endif %}
+        </div>
+                    <div class=" container" style="text-align: center;">
+                        <div class=" home-doctors  clearfix " >
+                            <div class="container  "  style="text-align:center;position: absolute;top: 80px;margin: 30px">
+                                <div class="row border">
+                                    {% for circ in circuits %}
+                                        <div class="col-lg-6 col-md-6 col-sm-6  text-center doc-item ">
+                                            <div style="border-radius: 6px" class="common-doctor fadeInUp clearfix ae-animation-fadeInUp bg-teal-600">
+                                            <figure style="margin: 10px;width:500px; height:100px">
+
+                                               <a style="text-decoration: none" href="circuit/{{ circ.id }}"><div width="670" height="600px"  class="doc-img animate ">
+                                                    <p style="margin-top: 10px;font-size: 30px;font-family: 'Droid Sans Mono'" class="text-white">
+                                                        {{ circ.DesCircuit}}</p>
+
+                                                   </div> <p style="margin-left: 15px;margin-top: 20px;font-family: 'Droid Sans Mono'" class="text-white text-left">
+                                                      Duree de circuit: {{ circ.DureeCircuit}}</p>
+                                               </a></figure>
+                                               <div style="padding: 10px">
+                                                   {% if app.user %}
+                                                   <a href="{{ path('updateCirc',{'id':circ.id}) }}">
+                                                       <button  class="btn" style="background-color: powderblue">Modifier</button></a>
+                                                <a href="{{  path('deleteCirc',{'id':circ.id})  }}">
+                                                    <button  class="btn" style="background-color: #e53e3e">Supprimer</button></a>
+                                                   {% endif %}
+                                            </div>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+             </div>
+         </div>
+
+{% endblock %}
+

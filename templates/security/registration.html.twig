@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+{% block title %} Register{% endblock %}
+{% block body %}
+    <div class="h-screen bg-gray-200 flex justify-center align-items ">
+        <table style="margin: 30px">
+            <tr>
+                <td>
+                    {{ form_start(form,{'attr':{'class':'bg-white shadow-md  rounded px-8 pt-6 block text-center text-gray-500 text-sm  mb-2','style':'height:450px;width:600px'}}) }}
+                        <h1 class="text-center text-teal-600">Inscription </h1>
+                        <div class="mb-4">
+                                {{ form_row(form.username,{'label':'Pseudo','attr':{'class':'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700
+                                 leading-tight focus:outline-none focus:shadow-outline'}}) }}
+                        </div>
+                        <div class="mb-6">
+                                {{ form_row(form.password,{'label':'Mot de passe','attr':{'class':'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3
+                                leading-tight focus:outline-none focus:shadow-outline'}}) }}
+                        </div>
+                    <div class="mb-8">
+                        {{ form_row(form.ConfirmPassword,{'label':'Confirmer le mot de passe','attr':{'class':'shadow appearance-none border rounded w-full py-2 px-3
+                        text-gray-700 leading-tight focus:outline-none focus:shadow-outline'}}) }}
+                    </div>
+                        <div class="flex items-center justify-between">
+                            <button type="submit" style="width: 300px;margin-left: 120px" class="text-center bg-teal-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none
+                             focus:shadow-outline" type="button">
+                                S'inscrire
+                            </button>
+                        </div>
+                        {{ form_end(form) }}
+                </td>
+                <td><div style="height: 100%"><h2 style="text-decoration: none;z-index: 100;position: absolute;margin-top: 30px;margin-left: 80px;color: black">Login</h2>
+                        <img src="https://p5.storage.canalblog.com/54/31/748014/88153845_o.jpg" style="opacity: 0.7;  background-color:indianred;width:270px;height:100%"/></div></td>
+                <h5 style="text-decoration: none;z-index: 100;position: absolute;margin-top: 150px;margin-left: 310px;color: black">Vous Avez Deja<br> Un compte ?</h5>
+                <a href="{{ path('login') }}"><button type="submit" style="z-index: 100;position: absolute;margin-top: 350px;width: 150px;margin-left: 680px" class="text-center bg-teal-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+                        Connexion
+                    </button></a>
+            </tr>
+        </table>
+    </div>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}  Form {% endblock %}
+{% block main %}
+    <div style="position:absolute;top:10px;width: 100%;">
+
+        <h1 class="text-teal-600" style="padding: 10px">
+               Supprimer Une Destination
+        </h1>
+        <div class="m-4 border rounded-lg" style="margin-top: 60px;padding: 20px">
+            {{ form_start(formDest) }}
+            <strong>{{ form_row(formDest.code_dest,{'attr':{'placeholder':'Code de la destination'}} )}}</strong>
+            <strong> {{ form_row(formDest.des_dest,{'attr':{'placeholder':'Description de la destination'}} )}}</strong>
+            <strong> {{ form_row(formDest.image_dest,{'attr':{'placeholder':'Image de la destination'}} )}}</strong>
+            <button type="submit" class="btn" style="background-color: #319795">
+               Supprimer
+            </button>
+            {{ form_end(formDest) }}
+        </div>
+    </div>
+{% endblock %}

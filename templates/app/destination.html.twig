@@ -1,0 +1,57 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}  Destination {% endblock %}
+
+{% block main %}
+<div style="position:absolute;top:1px;width: 100%;filter: blur(5px);height: 500px;background-position: center;background-repeat: no-repeat;
+  background-size: cover;background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRVJumE1ekjTGURUy82c29tbkLau65oUIj73kDiZlS6NHPa6MSj&usqp=CAU')">
+</div>
+    <strong style="font-size:50px ; z-index: 10;position: absolute;top:250px; margin-left: 250px;color: white">Profitez de nos meilleurs destinations</strong>
+<div class="col-md-12 " style=" background-color: #f1f2f3 ;margin-top: 500px">
+ <div class=" container" >
+   <div style="display: flex;margin-top: 10px"><h1 style="text-align:left;padding: 10px">Nos Voyages</h1>
+       {% if app.user %}
+       <a style="margin-left: 550px" href="{{path('create')}}"><button  class="btn" style="margin-top:20px;background-color: teal;color: white">Ajouter Une Destination</button></a>
+       {% endif %}
+   </div>
+     <div class="container ">
+       <div class=" home-doctors  clearfix  row "><!--  style="position: relative;top:5px;" -->
+          {% for dest in destination %}
+             <div class=" doc">
+               <table>
+                 <tr><td>
+                   <div class=" col-md-12 text-center doc-item" style="margin: 10px">
+                     <div class=" common-doctor fadeInUp clearfix ae-animation-fadeInUp">
+                       <figure>
+                         <a href="{{path('detailDest',{ 'id':dest.id})}}" target="blank"><img width="670" height="500" src="{{ dest.ImageDest }}" class="doc-img animate " alt="doctor-2" /></a>
+                           <h5 style="position: absolute;top: 130px;color: #f1f2f3;font-size: 30px;font-family: 'Droid Sans Mono'" class="text-white">{{ dest.DesDest}}</h5>
+                       </figure>
+                     </div>
+                   </div>
+                     </td>
+                     <td width="450px">
+                       <div style="margin-left: 20px; text-align: left"><h3>Des voyages au coeur de {{dest.DesDest}} </h3>
+                         <p class="text-center" style="border-radius: 20px;background-color: #e53e3e;color: #ebf8ff;width: 190px;"> authentique et unique</p>
+                           <p> Voyages de reve<br>Notre ambition première est de vous faire vivre une expérience unique.<br>Chacun de nos voyages est conçu sur-mesure.<br></p>
+                       </div> <!--Code du voyage : {{ dest.CodeDest }}-->
+                     </td>
+                     <td>
+                      <div class="flex content-between" style="margin-top: 90px;margin-left: 20px;padding: 30px">
+                          {% if app.user %}
+                          <a href=""{{path('update',{'id':dest.id})}}"><button  class="btn" style="background-color: powderblue;">Modifier</button></a>
+                          <a href="{{path('delete',{'id':dest.id})}}"><button  class="btn" style="background-color: #e53e3e;">Supprimer</button></a>
+                            {% endif %}
+                      </div>
+                     </td>
+                 </tr>
+               </table>
+              </div>
+
+                        {% endfor %}
+                    </div>
+                </div>
+
+        </div>
+
+    </div>
+{% endblock %}

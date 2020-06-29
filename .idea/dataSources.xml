@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="Dreamttour@localhost" uuid="3c8f1457-a9d3-4438-9789-5d25b421edfb">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/Dreamttour</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="MySQL - Dreamttour@localhost" uuid="ff6f09ae-ed98-45d5-811b-1376f3572383">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/Dreamttour</jdbc-url>
+    </data-source>
+  </component>
+</project>

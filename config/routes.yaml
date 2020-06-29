@@ -1,0 +1,12 @@
+#index:
+#   path: /index
+#  controller: App\Controller\DemoController::index
+
+#index:
+#    path: /
+#    controller: App\Controller\AppController::home
+
+destination:
+    path: /destination
+    controller: App\Controller\AppController::destination
+
